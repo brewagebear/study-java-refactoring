@@ -11,16 +11,20 @@ package ex1;
 public class Robot {
     private final String _name;
 
+    public static final int COMMAND_WALK = 0;
+    public static final int COMMAND_STOP = 1;
+    public static final int COMMAND_JUMP = 2;
+
     public Robot(String _name) {
         this._name = _name;
     }
 
     public void order(int command){
-        if(command == 0){
+        if(command == COMMAND_WALK){
             System.out.println(_name + " walks.");
-        } else if (command == 1) {
+        } else if (command == COMMAND_STOP) {
             System.out.println(_name + " stop.");
-        } else if (command == 2) {
+        } else if (command == COMMAND_JUMP) {
             System.out.println(_name + " jump.");
         } else {
             System.out.println("Command error. command = " + command);
