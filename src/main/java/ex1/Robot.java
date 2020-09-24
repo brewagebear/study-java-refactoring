@@ -11,20 +11,22 @@ package ex1;
 public class Robot {
     private final String _name;
 
-    public static final int COMMAND_WALK = 0;
-    public static final int COMMAND_STOP = 1;
-    public static final int COMMAND_JUMP = 2;
+    public enum Command {
+        WALK,
+        STOP,
+        JUMP,
+    };
 
     public Robot(String _name) {
         this._name = _name;
     }
 
-    public void order(int command){
-        if(command == COMMAND_WALK){
+    public void order(Command command){
+        if(command == Command.WALK){
             System.out.println(_name + " walks.");
-        } else if (command == COMMAND_STOP) {
+        } else if (command == Command.STOP) {
             System.out.println(_name + " stop.");
-        } else if (command == COMMAND_JUMP) {
+        } else if (command == Command.JUMP) {
             System.out.println(_name + " jump.");
         } else {
             System.out.println("Command error. command = " + command);
