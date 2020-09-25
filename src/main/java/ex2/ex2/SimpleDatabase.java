@@ -18,14 +18,14 @@ public class SimpleDatabase {
             if(tmp == null){
                 flag = true;
             } else {
-                boolean flag2 = true;
+                boolean scanningKey = true;
                 StringBuffer s1 = new StringBuffer();
                 StringBuffer s2 = new StringBuffer();
                 for (int i = 0; i < tmp.length(); i++){
                     char tmp2 = tmp.charAt(i);
-                    if(flag2) {
+                    if(scanningKey) {
                         if (tmp2 == '=') {
-                            flag2 = false;
+                            scanningKey = false;
                         } else {
                             s1.append(tmp2);
                         }
