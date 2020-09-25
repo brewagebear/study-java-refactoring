@@ -2,7 +2,7 @@ package ex3;
 
 import java.util.Random;
 
-public class Main {
+public class AssertionExample {
     private static final Random random = new Random(1234);
 
     private static void execute(int length){
