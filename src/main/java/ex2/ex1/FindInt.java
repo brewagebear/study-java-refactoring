@@ -1,4 +1,4 @@
-package ex2;
+package ex2.ex1;
 
 public class FindInt {
     public static boolean find(int[] data, int target){
