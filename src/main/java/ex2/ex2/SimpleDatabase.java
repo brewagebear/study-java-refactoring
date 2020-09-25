@@ -10,32 +10,20 @@ import java.util.Map;
 public class SimpleDatabase {
     private Map<String, String> _map = new HashMap<String, String>();
     public SimpleDatabase(Reader r1) throws IOException {
-        BufferedReader r2 = new BufferedReader(r1);
-        boolean flag = false;
-        String tmp;
-        while (!flag) {
-            tmp = r2.readLine();
-            if(tmp == null){
-                flag = true;
-            } else {
-                boolean scanningKey = true;
-                StringBuffer s1 = new StringBuffer();
-                StringBuffer s2 = new StringBuffer();
-                for (int i = 0; i < tmp.length(); i++){
-                    char tmp2 = tmp.charAt(i);
-                    if(scanningKey) {
-                        if (tmp2 == '=') {
-                            scanningKey = false;
-                        } else {
-                            s1.append(tmp2);
-                        }
-                    } else {
-                        s2.append(tmp2);
-                    }
-                }
-                String ss1 = s1.toString();
-                String ss2 = s2.toString();
-                _map.put(ss1, ss2);
+        BufferedReader reader = new BufferedReader(r1);
+        while (true) {
+            String line = reader.readLine();
+
+            if(line == null) {
+                break;
+            }
+
+            int equalIndex = line.indexOf("=");
+
+            if (equalIndex > 0 ){
+                String key = line.substring(0, equalIndex);
+                String value = line.substring(equalIndex + 1, line.length());
+                _map.put(key, value);
             }
         }
     }
