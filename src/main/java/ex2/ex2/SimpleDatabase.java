@@ -6,9 +6,14 @@ import java.io.Reader;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SimpleDatabase {
+
     private Map<String, String> _map = new HashMap<String, String>();
+    private static Pattern _pattern = Pattern.compile("([^=]+)=(.*)");
+
     public SimpleDatabase(Reader r1) throws IOException {
         BufferedReader reader = new BufferedReader(r1);
         while (true) {
@@ -18,11 +23,11 @@ public class SimpleDatabase {
                 break;
             }
 
-            int equalIndex = line.indexOf("=");
+            Matcher matcher = _pattern.matcher(line);
 
-            if (equalIndex > 0 ){
-                String key = line.substring(0, equalIndex);
-                String value = line.substring(equalIndex + 1, line.length());
+            if (matcher.matches()){
+                String key = matcher.group(1);
+                String value = matcher.group(2);
                 _map.put(key, value);
             }
         }
