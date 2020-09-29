@@ -4,8 +4,7 @@ public class Book {
     private String _title;
     private String _isbn;
     private String _price;
-    private String _authorName;
-    private String _authorMail;
+    private Author _author;
 
     public Book(String _title,
                 String _isbn,
@@ -15,52 +14,51 @@ public class Book {
         this._title = _title;
         this._isbn = _isbn;
         this._price = _price;
-        this._authorName = _authorName;
-        this._authorMail = _authorMail;
+        this._author = new Author(_authorName, _authorMail);
     }
 
-    public String get_title() {
+    public String getTitle() {
         return _title;
     }
 
-    public void set_title(String _title) {
+    public void setTitle(String _title) {
         this._title = _title;
     }
 
-    public String get_isbn() {
+    public String getIsbn() {
         return _isbn;
     }
 
-    public void set_isbn(String _isbn) {
+    public void setIsbn(String _isbn) {
         this._isbn = _isbn;
     }
 
-    public String get_price() {
+    public String getPrice() {
         return _price;
     }
 
-    public void set_price(String _price) {
+    public void setPrice(String _price) {
         this._price = _price;
     }
 
-    public String get_authorName() {
-        return _authorName;
+    public String getAuthorName() {
+        return _author.getName();
     }
 
-    public void set_authorName(String _authorName) {
-        this._authorName = _authorName;
+    public void setAuthorName(String _authorName) {
+        this._author.setName(_authorName);
     }
 
-    public String get_authorMail() {
-        return _authorMail;
+    public String getAuthorMail() {
+        return _author.getMail();
     }
 
-    public void set_authorMail(String _authorMail) {
-        this._authorMail = _authorMail;
+    public void setAuthorMail(String _authorMail) {
+        this._author.setName(_authorMail);
     }
 
     public String toXml() {
-        String author = tag("author", tag("name", _authorName) + tag("mail", _authorMail));
+        String author = tag("author", tag("name", _author.getName()) + tag("mail", _author.getMail()));
         String book = tag("book", tag("title", _title) + tag("isbn", _isbn) + tag("price", _price) + author);
         return book;
     }
