@@ -7,18 +7,20 @@ public class Banner {
         _content = content;
     }
     public void print(int times) {
-        System.out.print("+");
-        for(int i = 0; i < _content.length(); i++) {
-            System.out.print("-");
-        }
-        System.out.println("+");
+        printBorder();
+        printContent(times);
+        printBorder();
+    }
 
+    private void printContent(int times) {
         for (int i = 0; i < times; i++){
             System.out.println("|" + _content + "|");
         }
+    }
 
+    private void printBorder() {
         System.out.print("+");
-        for(int i = 0; i < _content.length(); i++){
+        for (int i = 0; i < this._content.length(); i++) {
             System.out.print("-");
         }
         System.out.println("+");
