@@ -10,40 +10,16 @@ public class Person {
     }
 
     public Person(Label name) {
-        this(name, null);
+        this(name, new NullLabel());
     }
 
     public void display() {
-        if(_name != null) {
-            _name.display();
-        }
-
-        if(_mail != null) {
-            _mail.display();
-        }
+        _name.display();
+        _mail.display();
     }
 
     public String toString() {
-        String result = "[ Person :";
-
-        result += " name=";
-
-        if(_name == null) {
-            result += "\"(none)\"";
-        } else {
-            result += _name;
-        }
-
-        result += " mail=";
-
-        if(_mail == null){
-            result += "\"(none)\"";
-        } else {
-            result += _mail;
-        }
-
-        result += " ]";
-        return result;
+        return "[ Person : name=" + _name + " mail=" + _mail + " ]";
     }
 
 }
