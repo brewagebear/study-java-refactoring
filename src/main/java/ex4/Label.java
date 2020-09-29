@@ -26,9 +26,9 @@ public class Label {
 
     private static class NullLabel extends Label {
         // 싱글톤
-        private static final NullLabel sigleton = new NullLabel();
+        private static final NullLabel singleton = new NullLabel();
         private static NullLabel getInstance() {
-            return sigleton;
+            return singleton;
         }
 
         private NullLabel() {
